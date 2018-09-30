@@ -9,9 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 
 /**
@@ -55,11 +58,18 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-//        mMap = googleMap;
-//
-//        // Add a marker in Sydney and move the camera
-//        LatLng sydney = new LatLng(-34, 151);
-//        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        mMap = googleMap;
+
+        // Add a marker in Sydney and move the camera
+        double[][] latLngs = {{40.733309, -74.003042},{40.719572, -74.008971}};
+
+        for (int i = 0; i < latLngs.length; i++) {
+            LatLng marker = new LatLng(latLngs[i][0], latLngs[i][1]);
+            mMap.addMarker(new MarkerOptions().position(marker).title("Marker"));
+        }
+
+        LatLng marker = new LatLng(40.733309, -74.003042);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(marker));
+        mMap.moveCamera(CameraUpdateFactory.zoomTo(12));
     }
 }

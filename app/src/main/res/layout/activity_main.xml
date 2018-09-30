@@ -11,16 +11,23 @@
 
     <!-- Layout to contain contents of main body of screen (drawer will slide over this) -->
     <!-- This LinearLayout represents the contents of the screen  -->
-    <LinearLayout
+    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <!-- The ActionBar displayed at the top -->
-        <include
-            layout="@layout/toolbar"
+        <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content" >
+
+            <!-- The ActionBar displayed at the top -->
+            <include
+                layout="@layout/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </android.support.design.widget.AppBarLayout>
 
         <!-- The main content view where fragments are loaded -->
         <FrameLayout
@@ -28,7 +35,16 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-    </LinearLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            app:srcCompat="@drawable/ic_add" />
+
+    </android.support.design.widget.CoordinatorLayout>
 
     <!-- Container for contents of drawer - use NavigationView to make configuration easier -->
     <android.support.design.widget.NavigationView
@@ -39,5 +55,11 @@
         android:fitsSystemWindows="true"
         app:menu="@menu/drawer_view"
         app:headerLayout="@layout/nav_header" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
 </android.support.v4.widget.DrawerLayout>
