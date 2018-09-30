@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         setupDrawerContent(nvDrawer);
 
         Fragment fragment = null;
-        Class fragmentClass = FeedFragment.class;
+        Class fragmentClass = UserFragment.class;
 
         try {
             fragment = (Fragment) fragmentClass.newInstance();
@@ -137,8 +137,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.nav_map:
                 fragmentClass = MapFragment.class;
                 break;
+            case R.id.nav_user:
+                fragmentClass = UserFragment.class;
+                break;
             default:
-                fragmentClass = FeedFragment.class;
+                fragmentClass = UserFragment.class;
         }
 
         try {
