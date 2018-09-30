@@ -34,10 +34,39 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+        <meta-data android:name="com.snapchat.kit.sdk.clientId" android:value="c48cf0db-ee23-45b4-b718-82dc701456b2" />
+        <meta-data android:name="com.snapchat.kit.sdk.redirectUrl" android:value="streetsnaps://returnapp/" />
+
+        <meta-data android:name="com.snapchat.kit.sdk.scopes" android:resource="@array/snap_connect_scopes" />
 
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"></activity>
+
+        <activity
+            android:name="com.snapchat.kit.sdk.SnapKitActivity"
+            android:launchMode="singleTask"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!--
+                    Enter the parts of your redirect url below
+                    e.g. if your redirect url is my-app://abc/xy/z
+
+                    android:scheme="my-app"
+                    android:host="abc"
+                    android:path="/xy/z"
+                    > -->
+                <data
+                    android:scheme="streetsnaps"
+                    android:host="returnapp"
+                    android:path="/"
+                    />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
