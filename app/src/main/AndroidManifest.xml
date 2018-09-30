@@ -5,9 +5,12 @@
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
-         location permissions for the 'MyLocation' functionality. 
+         location permissions for the 'MyLocation' functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- To access Google+ APIs: -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -29,26 +32,30 @@
              Note that the API key is linked to the encryption key used to sign the APK.
              You need a different API key for each encryption key, including the release key that is used to
              sign the APK for publishing.
-             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-        <meta-data android:name="com.snapchat.kit.sdk.clientId" android:value="c48cf0db-ee23-45b4-b718-82dc701456b2" />
-        <meta-data android:name="com.snapchat.kit.sdk.redirectUrl" android:value="streetsnaps://returnapp/" />
-
-        <meta-data android:name="com.snapchat.kit.sdk.scopes" android:resource="@array/snap_connect_scopes" />
+        <meta-data
+            android:name="com.snapchat.kit.sdk.clientId"
+            android:value="c48cf0db-ee23-45b4-b718-82dc701456b2" />
+        <meta-data
+            android:name="com.snapchat.kit.sdk.redirectUrl"
+            android:value="streetsnaps://returnapp/" />
+        <meta-data
+            android:name="com.snapchat.kit.sdk.scopes"
+            android:resource="@array/snap_connect_scopes" />
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
-
+            android:label="@string/title_activity_maps" />
         <activity
             android:name="com.snapchat.kit.sdk.SnapKitActivity"
-            android:launchMode="singleTask"
-            >
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
@@ -59,12 +66,12 @@
                     android:scheme="my-app"
                     android:host="abc"
                     android:path="/xy/z"
-                    > -->
+                    >
+                -->
                 <data
-                    android:scheme="streetsnaps"
                     android:host="returnapp"
                     android:path="/"
-                    />
+                    android:scheme="streetsnaps" />
             </intent-filter>
         </activity>
     </application>
