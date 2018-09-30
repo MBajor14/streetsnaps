@@ -56,10 +56,4 @@
         app:menu="@menu/drawer_view"
         app:headerLayout="@layout/nav_header" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
 </android.support.v4.widget.DrawerLayout>
